@@ -1,15 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://vylph3iouuop"]
 
 [ext_resource type="Texture2D" uid="uid://uqahsairfoxd" path="res://fish.png" id="1_2i1w6"]
-[ext_resource type="Script" path="res://tweenTest.gd" id="1_455po"]
+[ext_resource type="Script" path="res://FishTween.gd" id="2_d0j7c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xy3x"]
 radius = 3.0
 height = 16.0
 
 [node name="Fish" type="CharacterBody2D"]
+position = Vector2(27, 15)
 collision_layer = 128
-script = ExtResource("1_455po")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -19,3 +20,6 @@ texture = ExtResource("1_2i1w6")
 position = Vector2(-3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6xy3x")
+
+[node name="tween" type="Node2D" parent="."]
+script = ExtResource("2_d0j7c")
