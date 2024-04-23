@@ -5,6 +5,25 @@
 
 [node name="World" type="Node2D"]
 
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_left = 72.0
+offset_top = 141.0
+offset_right = 72.0
+offset_bottom = 141.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="CenterContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_kbcot")
+theme_override_font_sizes/font_size = 8
+text = "Press any button to continue"
+script = ExtResource("2_fay2f")
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_left = 72.0
 offset_top = 23.0
@@ -13,6 +32,7 @@ offset_bottom = 63.0
 use_top_left = true
 
 [node name="Label" type="Label" parent="CenterContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
