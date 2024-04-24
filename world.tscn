@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj1lw8d6tojnp"]
+[gd_scene load_steps=4 format=3 uid="uid://bj1lw8d6tojnp"]
 
 [ext_resource type="FontFile" uid="uid://i4vsk3tpjtwo" path="res://PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="1_kbcot"]
 [ext_resource type="Script" path="res://Title.gd" id="2_fay2f"]
+[ext_resource type="Texture2D" uid="uid://bdyum7ln7qspp" path="res://wave.png" id="3_6e6yw"]
 
 [node name="World" type="Node2D"]
 
@@ -42,3 +43,48 @@ theme_override_fonts/font = ExtResource("1_kbcot")
 theme_override_font_sizes/font_size = 20
 text = "Tuna Shit!"
 script = ExtResource("2_fay2f")
+
+[node name="waves" type="Node2D" parent="."]
+position = Vector2(-37, -18)
+
+[node name="wave_1" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(64, 59)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+
+[node name="wave_2" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(192, 59)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+
+[node name="wave_3" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(64, 177)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+
+[node name="wave_4" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(192, 177)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+
+[node name="wave_5" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(64, 295)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+
+[node name="wave_6" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(192, 295)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
