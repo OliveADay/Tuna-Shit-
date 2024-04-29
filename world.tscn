@@ -46,8 +46,6 @@ text = "Tuna Shit!"
 script = ExtResource("2_fay2f")
 
 [node name="waves" type="Node2D" parent="."]
-position = Vector2(-37, -18)
-script = ExtResource("4_uyr8e")
 
 [node name="wave_1" type="Sprite2D" parent="waves"]
 z_index = -1
@@ -55,6 +53,7 @@ texture_filter = 1
 position = Vector2(64, 59)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
 
 [node name="wave_2" type="Sprite2D" parent="waves"]
 z_index = -1
@@ -62,6 +61,8 @@ texture_filter = 1
 position = Vector2(192, 59)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
+maxPos = 201
 
 [node name="wave_3" type="Sprite2D" parent="waves"]
 z_index = -1
@@ -69,6 +70,7 @@ texture_filter = 1
 position = Vector2(64, 177)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
 
 [node name="wave_4" type="Sprite2D" parent="waves"]
 z_index = -1
@@ -76,6 +78,8 @@ texture_filter = 1
 position = Vector2(192, 177)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
+maxPos = 201
 
 [node name="wave_5" type="Sprite2D" parent="waves"]
 z_index = -1
@@ -83,6 +87,10 @@ texture_filter = 1
 position = Vector2(64, 295)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
+
+[node name="spawn" type="Node2D" parent="waves"]
+position = Vector2(0, 354)
 
 [node name="wave_6" type="Sprite2D" parent="waves"]
 z_index = -1
@@ -90,6 +98,31 @@ texture_filter = 1
 position = Vector2(192, 295)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
 
-[node name="spawn" type="Node2D" parent="waves"]
-position = Vector2(0, 354)
+[node name="wave_7" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(64, 413)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
+
+[node name="wave_8" type="Sprite2D" parent="waves"]
+z_index = -1
+texture_filter = 1
+position = Vector2(192, 413)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6e6yw")
+script = ExtResource("4_uyr8e")
+maxPos = 201
+
+[connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_2" to="waves/wave_4" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_4" to="waves/wave_5" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_4" to="waves/wave_6" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_6" to="waves/wave_7" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_6" to="waves/wave_8" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_8" to="waves/wave_1" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_8" to="waves/wave_2" method="_on_wave_6_move_to_far"]
+[connection signal="moveToFar" from="waves/wave_8" to="waves/wave_6" method="activate_HeightPos"]
