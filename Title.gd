@@ -13,4 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_anything_pressed():
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(get_parent(), "position", Vector2(41, -20), 1)
