@@ -129,7 +129,7 @@ script = ExtResource("4_uyr8e")
 maxPos = 201
 
 [node name="Fish" parent="." instance=ExtResource("5_u40qb")]
-position = Vector2(68, 255)
+position = Vector2(68, 241)
 scale = Vector2(1, 1)
 script = ExtResource("6_afsyi")
 
@@ -160,6 +160,5 @@ shape = SubResource("RectangleShape2D_14226")
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_1" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_2" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_6" method="activate_HeightPos"]
-[connection signal="fishTweenOne" from="Fish/tween" to="Fish" method="_on_tween_fish_tween_one"]
 
 [editable path="Fish"]

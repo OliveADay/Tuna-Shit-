@@ -9,6 +9,8 @@ height = 16.0
 
 [node name="Fish" type="CharacterBody2D"]
 position = Vector2(27, 15)
+rotation = 4.71239
+scale = Vector2(2, 2)
 collision_layer = 128
 metadata/_edit_group_ = true
 
