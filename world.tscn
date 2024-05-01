@@ -133,9 +133,6 @@ position = Vector2(68, 255)
 scale = Vector2(1, 1)
 script = ExtResource("6_afsyi")
 
-[node name="tween" parent="Fish" index="2" node_paths=PackedStringArray("sprite")]
-sprite = NodePath("../Sprite2D")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -160,6 +157,5 @@ shape = SubResource("RectangleShape2D_14226")
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_1" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_2" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_6" method="activate_HeightPos"]
-[connection signal="fishTweenOne" from="Fish/tween" to="Fish" method="_on_tween_fish_tween_one"]
 
 [editable path="Fish"]
