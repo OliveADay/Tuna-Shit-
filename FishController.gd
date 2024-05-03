@@ -18,17 +18,14 @@ func _physics_process(delta):
 		velocity.y = yAxis * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		
 	if startMovingUp:
 		if position.y > 200:
-			velocity.y = -100
+			velocity.y = -100*(abs(position.y-170)/30)
 		else:
 			startMovingUp = false
-			velocity.y = 0
 	move_and_slide()
 
 
 func _on_tween_fish_tween_one():
-	if position.y > 200:
-		velocity.y = -100
-		startMovingUp = true
-		move_and_slide() # Replace with function body.
+	startMovingUp = true # Replace with function body.

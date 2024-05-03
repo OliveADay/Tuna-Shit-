@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj1lw8d6tojnp"]
+[gd_scene load_steps=11 format=3 uid="uid://bj1lw8d6tojnp"]
 
 [ext_resource type="FontFile" uid="uid://i4vsk3tpjtwo" path="res://PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="1_kbcot"]
 [ext_resource type="Script" path="res://Title.gd" id="2_fay2f"]
@@ -14,7 +14,10 @@ size = Vector2(12, 270)
 size = Vector2(145, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14226"]
-size = Vector2(13, 261)
+size = Vector2(5, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu5fs"]
+size = Vector2(63, 9)
 
 [node name="World" type="Node2D"]
 
@@ -129,9 +132,12 @@ script = ExtResource("4_uyr8e")
 maxPos = 201
 
 [node name="Fish" parent="." instance=ExtResource("5_u40qb")]
-position = Vector2(68, 255)
+position = Vector2(68, 262)
 scale = Vector2(1, 1)
 script = ExtResource("6_afsyi")
+
+[node name="tween" parent="Fish" index="2" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../Sprite2D")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -144,8 +150,16 @@ position = Vector2(72.5, -5)
 shape = SubResource("RectangleShape2D_cfdff")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(138.5, 130.5)
+position = Vector2(147.5, 130.5)
 shape = SubResource("RectangleShape2D_14226")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(31, 266.5)
+shape = SubResource("RectangleShape2D_hu5fs")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(105.5, 266.5)
+shape = SubResource("RectangleShape2D_hu5fs")
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]
@@ -157,5 +171,6 @@ shape = SubResource("RectangleShape2D_14226")
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_1" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_2" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_8" to="waves/wave_6" method="activate_HeightPos"]
+[connection signal="fishTweenOne" from="Fish/tween" to="Fish" method="_on_tween_fish_tween_one"]
 
 [editable path="Fish"]
