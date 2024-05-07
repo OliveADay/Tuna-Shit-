@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bj1lw8d6tojnp"]
+[gd_scene load_steps=14 format=3 uid="uid://bj1lw8d6tojnp"]
 
 [ext_resource type="FontFile" uid="uid://i4vsk3tpjtwo" path="res://PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="1_kbcot"]
 [ext_resource type="Script" path="res://Title.gd" id="2_fay2f"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://FishController.gd" id="6_afsyi"]
 [ext_resource type="Texture2D" uid="uid://clbrrpr7mwl6h" path="res://shit.png" id="7_refj1"]
 [ext_resource type="Script" path="res://shit.gd" id="8_bau56"]
-[ext_resource type="Texture2D" uid="uid://1yl00g2nea5g" path="res://shit_bit.png" id="9_o07db"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xy3x"]
 radius = 3.0
@@ -25,9 +24,6 @@ size = Vector2(5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu5fs"]
 size = Vector2(67, 9)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tbfx6"]
-radius = 6.5
 
 [node name="World" type="Node2D"]
 
@@ -211,18 +207,6 @@ angular_velocity_max = 320.0
 scale_amount_min = 2.0
 scale_amount_max = 2.0
 color = Color(0, 0.67451, 0.713726, 1)
-
-[node name="shitBit" type="RigidBody2D" parent="shit"]
-collision_layer = 3
-collision_mask = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="shit/shitBit"]
-z_index = 1
-texture_filter = 1
-texture = ExtResource("9_o07db")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="shit/shitBit"]
-shape = SubResource("CircleShape2D_tbfx6")
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]

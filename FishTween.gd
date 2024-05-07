@@ -1,6 +1,7 @@
 extends Node2D
 @export var sprite = Sprite2D
 signal fishTweenOne
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = create_tween().set_loops() # Replace with function body.
