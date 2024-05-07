@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bj1lw8d6tojnp"]
+[gd_scene load_steps=16 format=3 uid="uid://bj1lw8d6tojnp"]
 
 [ext_resource type="FontFile" uid="uid://i4vsk3tpjtwo" path="res://PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="1_kbcot"]
 [ext_resource type="Script" path="res://Title.gd" id="2_fay2f"]
@@ -6,7 +6,10 @@
 [ext_resource type="Script" path="res://wave.gd" id="4_uyr8e"]
 [ext_resource type="PackedScene" uid="uid://vylph3iouuop" path="res://Fish.tscn" id="5_u40qb"]
 [ext_resource type="Script" path="res://FishController.gd" id="6_afsyi"]
-[ext_resource type="PackedScene" uid="uid://b3vue2pkbkg5p" path="res://shit.tscn" id="7_bi73r"]
+[ext_resource type="Texture2D" uid="uid://clbrrpr7mwl6h" path="res://shit.png" id="7_refj1"]
+[ext_resource type="Script" path="res://shit.gd" id="8_bau56"]
+[ext_resource type="PackedScene" uid="uid://d2hvdp4nllu2f" path="res://shit_bit.tscn" id="9_wbacb"]
+[ext_resource type="Script" path="res://shit_bit.gd" id="9_x5ahx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xy3x"]
 radius = 3.0
@@ -154,8 +157,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6xy3x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-6, 125)
@@ -169,19 +170,48 @@ shape = SubResource("RectangleShape2D_cfdff")
 position = Vector2(147.5, 130.5)
 shape = SubResource("RectangleShape2D_14226")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 130
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(31, 266.5)
 shape = SubResource("RectangleShape2D_hu5fs")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(104.5, 266.5)
 shape = SubResource("RectangleShape2D_hu5fs")
 
-[node name="shit" parent="." instance=ExtResource("7_bi73r")]
+[node name="shit" type="Node2D" parent="."]
+position = Vector2(41, 66)
+scale = Vector2(2, 2)
+script = ExtResource("8_bau56")
+speed = 2
+metadata/_edit_group_ = true
+
+[node name="sprite" type="Sprite2D" parent="shit"]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("7_refj1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="shit"]
+z_index = -1
+emitting = false
+amount = 30
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 320.0
+initial_velocity_max = 320.0
+angular_velocity_min = -436.37
+angular_velocity_max = 320.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0, 0.67451, 0.713726, 1)
+
+[node name="ShitBit" parent="shit/CPUParticles2D" instance=ExtResource("9_wbacb")]
+script = ExtResource("9_x5ahx")
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]
