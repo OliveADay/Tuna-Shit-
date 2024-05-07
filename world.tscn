@@ -184,20 +184,6 @@ shape = SubResource("RectangleShape2D_hu5fs")
 [node name="ShitSpawner" type="Node2D" parent="."]
 script = ExtResource("7_ai3me")
 
-[node name="Label" type="Label" parent="ShitSpawner"]
-texture_filter = 1
-offset_right = 43.0
-offset_bottom = 30.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.608497, 0.366264, 0.700816, 1)
-theme_override_constants/outline_size = 6
-theme_override_constants/shadow_outline_size = 7
-theme_override_constants/line_spacing = 3
-theme_override_fonts/font = ExtResource("1_kbcot")
-theme_override_font_sizes/font_size = 25
-text = "sss"
-
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_4" method="_on_wave_6_move_to_far"]

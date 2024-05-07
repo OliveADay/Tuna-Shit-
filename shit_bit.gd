@@ -17,4 +17,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if($Area2D.has_overlapping_bodies()):
+		queue_free() #this unparents perminantely, make it not perminant

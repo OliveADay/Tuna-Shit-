@@ -1,6 +1,9 @@
 extends Node2D
 
 var time = 0.0
+var shits = [preload("res://shit.tscn").instantiate(), preload("res://shit.tscn").instantiate(), preload("res://shit.tscn").instantiate(), preload("res://shit.tscn").instantiate()]
+@export var interval = Vector2(2, 0.3)
+var currentShit = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,5 +11,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	time += delta
-	$Label.text = String.num(time, 0)
+	if time >= interval.x:
+		time = 0
+		add_child(shits[currentShit])
+		currentShit += 1
+		if currentShit > 3:
+			currentShit = 0
+	else:
+		time += delta
