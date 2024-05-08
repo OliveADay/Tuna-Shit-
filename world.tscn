@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bdyum7ln7qspp" path="res://wave.png" id="3_6e6yw"]
 [ext_resource type="Script" path="res://wave.gd" id="4_uyr8e"]
 [ext_resource type="PackedScene" uid="uid://vylph3iouuop" path="res://Fish.tscn" id="5_u40qb"]
-[ext_resource type="Script" path="res://FishController.gd" id="6_afsyi"]
 [ext_resource type="Script" path="res://ShitSpawner.gd" id="7_ai3me"]
+[ext_resource type="Script" path="res://Health_Twen.gd" id="7_f0ymp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xy3x"]
 radius = 3.0
@@ -137,25 +137,25 @@ texture = ExtResource("3_6e6yw")
 script = ExtResource("4_uyr8e")
 maxPos = 201
 
-[node name="Fish" parent="." instance=ExtResource("5_u40qb")]
+[node name="Fish" parent="." node_paths=PackedStringArray("healthTxt") instance=ExtResource("5_u40qb")]
 position = Vector2(68, 262)
 scale = Vector2(1, 1)
 collision_mask = 4
-script = ExtResource("6_afsyi")
+healthTxt = NodePath("../CenterContainer3/Label")
 
 [node name="tween" parent="Fish" index="2" node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../Sprite2D")
 
-[node name="Area2D" type="Area2D" parent="Fish"]
+[node name="Area2D2" type="Area2D" parent="Fish"]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Area2D2"]
 position = Vector2(-3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6xy3x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 7
+collision_layer = 3
 collision_mask = 131
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -185,8 +185,29 @@ shape = SubResource("RectangleShape2D_hu5fs")
 [node name="ShitSpawner" type="Node2D" parent="."]
 script = ExtResource("7_ai3me")
 
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+offset_left = 16.0
+offset_top = -14.0
+offset_right = 56.0
+offset_bottom = 26.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="CenterContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.320418, 0.635359, 0.787272, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_kbcot")
+theme_override_font_sizes/font_size = 22
+text = "3"
+script = ExtResource("7_f0ymp")
+
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="keyPressed" from="CenterContainer2/Label" to="ShitSpawner" method="_on_label_key_pressed"]
+[connection signal="keyPressed" from="CenterContainer2/Label" to="CenterContainer3/Label" method="_on_label_key_pressed"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_4" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_4" to="waves/wave_5" method="_on_wave_6_move_to_far"]

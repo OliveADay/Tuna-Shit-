@@ -3,7 +3,10 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var startMovingUp = false
-
+var health = 3
+var collision = [Node2D]
+var collisionPrev = [Node2D]
+@export var healthTxt = Label
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -26,6 +29,14 @@ func _physics_process(delta):
 			startMovingUp = false
 	move_and_slide()
 
+func _process(delta):
+	healthTxt.text = str(health)
+	collision = $Area2D.get_overlapping_bodies()
+	if $Area2D.has_overlapping_bodies() and collision != collisionPrev:
+		health -= 1
+		if health == 0:
+			get_tree().reload_current_scene()
+	collisionPrev = collision
 
 func _on_tween_fish_tween_one():
 	startMovingUp = true # Replace with function body.

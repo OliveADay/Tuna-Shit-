@@ -1,6 +1,7 @@
 extends Label
 signal keyPressed
 var keyPressedOnce = false
+@export var Intial = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = create_tween().set_loops() # Replace with function body.
@@ -13,7 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_anything_pressed() and not keyPressedOnce:
+	if Input.is_anything_pressed() and not keyPressedOnce and Intial:
 		keyPressed.emit()
 		keyPressedOnce = true
 		var tween = create_tween()
