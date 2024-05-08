@@ -155,7 +155,7 @@ shape = SubResource("CapsuleShape2D_6xy3x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
-collision_mask = 130
+collision_mask = 131
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-6, 125)
