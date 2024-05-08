@@ -29,6 +29,5 @@ func _process(delta):
 		landOne = true
 		$sprite.visible = false
 	if shitBit_1.is_in_group("OutOCam") and shitBit_2.is_in_group("OutOCam") and shitBit_3.is_in_group("OutOCam") and shitBit_4.is_in_group("OutOCam"):
-			add_to_group("OutOCam")
-			scale = Vector2(2,2)
+			queue_free()
 			
