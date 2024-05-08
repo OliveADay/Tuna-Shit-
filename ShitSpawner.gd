@@ -20,7 +20,7 @@ func _process(delta):
 			currentShit = 0
 	else:
 		time += delta
-		
+		#figure out how to reset everything else about the nodes so that they can be reintroduced
 	for i in shits.size():
 		if shits[i].is_in_group("OutOCam"):
 			remove_child(shits[i])

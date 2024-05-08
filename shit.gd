@@ -11,6 +11,7 @@ var landOne = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$sprite.visible = true
+	scale = Vector2(2,2)
 	 # Replace with function body.
 
 
