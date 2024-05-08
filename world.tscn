@@ -140,6 +140,7 @@ maxPos = 201
 [node name="Fish" parent="." instance=ExtResource("5_u40qb")]
 position = Vector2(68, 262)
 scale = Vector2(1, 1)
+collision_mask = 4
 script = ExtResource("6_afsyi")
 
 [node name="tween" parent="Fish" index="2" node_paths=PackedStringArray("sprite")]
@@ -154,7 +155,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6xy3x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
+collision_layer = 7
 collision_mask = 131
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -185,6 +186,7 @@ shape = SubResource("RectangleShape2D_hu5fs")
 script = ExtResource("7_ai3me")
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
+[connection signal="keyPressed" from="CenterContainer2/Label" to="ShitSpawner" method="_on_label_key_pressed"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_3" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_2" to="waves/wave_4" method="_on_wave_6_move_to_far"]
 [connection signal="moveToFar" from="waves/wave_4" to="waves/wave_5" method="_on_wave_6_move_to_far"]

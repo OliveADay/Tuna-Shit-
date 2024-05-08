@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clbrrpr7mwl6h" path="res://shit.png" id="2_2blem"]
 
 [node name="shit" type="Node2D"]
-position = Vector2(41, 66)
+position = Vector2(41, 21)
 scale = Vector2(2, 2)
 script = ExtResource("1_6bjyv")
 speed = 2

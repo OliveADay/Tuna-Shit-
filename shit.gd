@@ -10,8 +10,10 @@ var shitBit_4 = preload("res://shit_bit.tscn").instantiate()
 var landOne = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$sprite.visible = true
-	scale = Vector2(2,2)
+	var randX = randi()%120 +26
+	var randY = randi()%66 +20
+	position.x = randX
+	position.y = randY
 	 # Replace with function body.
 
 
