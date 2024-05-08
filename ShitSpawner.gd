@@ -14,8 +14,13 @@ func _process(delta):
 	if time >= interval.x:
 		time = 0
 		add_child(shits[currentShit])
+		shits[currentShit].remove_from_group("OutOCam")
 		currentShit += 1
 		if currentShit > 3:
 			currentShit = 0
 	else:
 		time += delta
+		
+	for i in shits.size():
+		if shits[i].is_in_group("OutOCam"):
+			remove_child(shits[i])

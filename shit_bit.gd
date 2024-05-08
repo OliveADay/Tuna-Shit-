@@ -3,6 +3,7 @@ var rand = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	rand = randi()%4
 	if rand == 0:
 		linear_velocity = Vector2(0, 100)
@@ -18,4 +19,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if($Area2D.has_overlapping_bodies()):
-		parent = get_tree().root #this unparents perminantely, make it not perminant
+		add_to_group("OutOCam") #this unparents perminantely, make it not perminant

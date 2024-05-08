@@ -10,7 +10,8 @@ var shitBit_4 = preload("res://shit_bit.tscn").instantiate()
 var landOne = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$sprite.visible = true
+	 # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,3 +27,7 @@ func _process(delta):
 		add_child(shitBit_4)
 		landOne = true
 		$sprite.visible = false
+	if shitBit_1.is_in_group("OutOCam") and shitBit_2.is_in_group("OutOCam") and shitBit_3.is_in_group("OutOCam") and shitBit_4.is_in_group("OutOCam"):
+			add_to_group("OutOCam")
+			scale = Vector2(2,2)
+			
