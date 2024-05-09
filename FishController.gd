@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-
+@export var grazePeriod = 0.2
 const SPEED = 300.0
 var startMovingUp = false
-var health = 3
-var collision = [Node2D]
-var collisionPrev = [Node2D]
+var health = 3 
+var grazeTime = 0
 @export var healthTxt = Label
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -31,12 +30,15 @@ func _physics_process(delta):
 
 func _process(delta):
 	healthTxt.text = str(health)
-	collision = $Area2D.get_overlapping_bodies()
-	if $Area2D.has_overlapping_bodies() and collision != collisionPrev:
+	if $Area2D.has_overlapping_bodies() and grazeTime <= 0:
 		health -= 1
+		grazeTime = grazePeriod
 		if health == 0:
 			get_tree().reload_current_scene()
-	collisionPrev = collision
+	if grazeTime > 0:
+		grazeTime -= delta
+		
+	print(str(grazeTime))
 
 func _on_tween_fish_tween_one():
 	startMovingUp = true # Replace with function body.

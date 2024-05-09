@@ -141,6 +141,7 @@ maxPos = 201
 position = Vector2(68, 262)
 scale = Vector2(1, 1)
 collision_mask = 4
+grazePeriod = 1.0
 healthTxt = NodePath("../CenterContainer3/Label")
 
 [node name="tween" parent="Fish" index="2" node_paths=PackedStringArray("sprite")]
@@ -182,8 +183,9 @@ shape = SubResource("RectangleShape2D_hu5fs")
 position = Vector2(104.5, 266.5)
 shape = SubResource("RectangleShape2D_hu5fs")
 
-[node name="ShitSpawner" type="Node2D" parent="."]
+[node name="ShitSpawner" type="Node2D" parent="." node_paths=PackedStringArray("scoreTxt")]
 script = ExtResource("7_ai3me")
+scoreTxt = NodePath("../Label")
 
 [node name="CenterContainer3" type="CenterContainer" parent="."]
 offset_left = 16.0
@@ -204,6 +206,20 @@ theme_override_fonts/font = ExtResource("1_kbcot")
 theme_override_font_sizes/font_size = 22
 text = "3"
 script = ExtResource("7_f0ymp")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 114.0
+offset_right = 154.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.906882, 0.20873, 0.312254, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("1_kbcot")
+theme_override_font_sizes/font_size = 21
+text = "22"
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="keyPressed" from="CenterContainer2/Label" to="ShitSpawner" method="_on_label_key_pressed"]

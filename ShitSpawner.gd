@@ -5,6 +5,9 @@ var shits = [preload("res://shit.tscn"), preload("res://shit.tscn"), preload("re
 @export var interval = Vector2(2, 0.3)
 var currentShit = 0
 var active = false
+var score = 0
+var scoreExel = 1
+@export var scoreTxt = Label
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,7 +16,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if active:
-		
+		score += delta*3
+		scoreTxt.text = str(score).pad_decimals(0)
+		if(interval.x > 0.1):
+			interval.x -= delta/100
 		if time >= interval.x:
 			time = 0
 			var shit = shits[0].instantiate()

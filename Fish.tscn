@@ -30,6 +30,7 @@ shape = SubResource("CapsuleShape2D_6xy3x")
 script = ExtResource("2_d0j7c")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-3, 0)

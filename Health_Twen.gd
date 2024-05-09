@@ -8,13 +8,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if start:
-		var tween = create_tween().set_loops() # Replace with function body.
-		tween.set_ease(Tween.EASE_IN)
-		tween.set_trans(Tween.TRANS_SINE)
-		tween.tween_property(get_parent(), "rotation_degrees", 10.0, 1.5)
+	#if start:
+	var tween = create_tween().set_loops() # Replace with function body.
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(get_parent(), "rotation_degrees", 10.0, 1.5)
 	#tween.tween_interval(2)
-		tween.tween_property(get_parent(), "rotation_degrees", -10, 3) # Replace with function body.
+	tween.tween_property(get_parent(), "rotation_degrees", -10, 3) # Replace with function body.
 
 
 
