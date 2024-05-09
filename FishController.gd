@@ -6,6 +6,7 @@ var startMovingUp = false
 var health = 3 
 var grazeTime = 0
 @export var healthTxt = Label
+var yaxisPressed = false
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -18,9 +19,13 @@ func _physics_process(delta):
 		
 	if yAxis:
 		velocity.y = yAxis * SPEED
+		yaxisPressed = true
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
+	if yaxisPressed:
+		velocity.y -= 20#MAKE THIS WORK AFTER BUTTON PRESSED
+	
 	if startMovingUp:
 		if position.y > 200:
 			velocity.y = -100*(abs(position.y-170)/30)

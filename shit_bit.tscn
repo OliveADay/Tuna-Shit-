@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://shit_bit.gd" id="1_3i552"]
 [ext_resource type="Texture2D" uid="uid://1yl00g2nea5g" path="res://shit_bit.png" id="1_vjxxg"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_csifp"]
-bounce = 0.1
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_03fna"]
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_72gvo"]
 radius = 6.0
 
 [node name="ShitBit" type="RigidBody2D"]
 collision_layer = 9
-physics_material_override = SubResource("PhysicsMaterial_csifp")
+physics_material_override = SubResource("PhysicsMaterial_03fna")
 gravity_scale = 0.1
 script = ExtResource("1_3i552")
 metadata/_edit_group_ = true

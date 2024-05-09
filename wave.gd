@@ -22,7 +22,7 @@ func _process(delta):
 
 
 func _on_wave_6_move_to_far():
-	position.y = 295 # Replace with function body.
+	position.y = 295 # change so that it moves the other way
 	
 func activate_HeightPos():
 	maxPos = 201

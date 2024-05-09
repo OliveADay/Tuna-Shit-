@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://shit.gd" id="1_6bjyv"]
 [ext_resource type="Texture2D" uid="uid://clbrrpr7mwl6h" path="res://shit.png" id="2_2blem"]
-[ext_resource type="AudioStream" uid="uid://ey320by527ki" path="res://drop.wav" id="3_lie8i"]
+[ext_resource type="AudioStream" uid="uid://ey320by527ki" path="res://drop.wav" id="3_kkjhv"]
 
 [node name="shit" type="Node2D"]
 position = Vector2(41, 21)
@@ -37,4 +37,4 @@ scale_amount_max = 2.0
 color = Color(0, 0.67451, 0.713726, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_lie8i")
+stream = ExtResource("3_kkjhv")
