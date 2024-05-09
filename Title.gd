@@ -16,6 +16,7 @@ func _ready():
 func _process(delta):
 	if Input.is_anything_pressed() and not keyPressedOnce and Intial:
 		keyPressed.emit()
+		#AudioStreamPlayer2D.playing = true
 		keyPressedOnce = true
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN)

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var grazePeriod = 0.2
-const SPEED = 300.0
+const SPEED = 150.0
 var startMovingUp = false
 var health = 3 
 var grazeTime = 0
@@ -31,14 +31,13 @@ func _physics_process(delta):
 func _process(delta):
 	healthTxt.text = str(health)
 	if $Area2D.has_overlapping_bodies() and grazeTime <= 0:
+		$AudioStreamPlayer2D.playing = true
 		health -= 1
 		grazeTime = grazePeriod
 		if health == 0:
 			get_tree().reload_current_scene()
 	if grazeTime > 0:
 		grazeTime -= delta
-		
-	print(str(grazeTime))
 
 func _on_tween_fish_tween_one():
 	startMovingUp = true # Replace with function body.

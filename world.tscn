@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bj1lw8d6tojnp"]
+[gd_scene load_steps=15 format=3 uid="uid://bj1lw8d6tojnp"]
 
 [ext_resource type="FontFile" uid="uid://i4vsk3tpjtwo" path="res://PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="1_kbcot"]
 [ext_resource type="Script" path="res://Title.gd" id="2_fay2f"]
 [ext_resource type="Texture2D" uid="uid://bdyum7ln7qspp" path="res://wave.png" id="3_6e6yw"]
+[ext_resource type="AudioStream" uid="uid://bdad028ctl4cn" path="res://start.wav" id="3_qk4nq"]
 [ext_resource type="Script" path="res://wave.gd" id="4_uyr8e"]
 [ext_resource type="PackedScene" uid="uid://vylph3iouuop" path="res://Fish.tscn" id="5_u40qb"]
+[ext_resource type="AudioStream" uid="uid://dexioc83tlhgh" path="res://score.wav" id="7_4yrcn"]
 [ext_resource type="Script" path="res://ShitSpawner.gd" id="7_ai3me"]
 [ext_resource type="Script" path="res://Health_Twen.gd" id="7_f0ymp"]
 
@@ -140,7 +142,7 @@ maxPos = 201
 [node name="Fish" parent="." node_paths=PackedStringArray("healthTxt") instance=ExtResource("5_u40qb")]
 position = Vector2(68, 262)
 scale = Vector2(1, 1)
-collision_mask = 4
+collision_mask = 6
 grazePeriod = 1.0
 healthTxt = NodePath("../CenterContainer3/Label")
 
@@ -187,6 +189,9 @@ shape = SubResource("RectangleShape2D_hu5fs")
 script = ExtResource("7_ai3me")
 scoreTxt = NodePath("../Label")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ShitSpawner"]
+stream = ExtResource("7_4yrcn")
+
 [node name="CenterContainer3" type="CenterContainer" parent="."]
 offset_left = 16.0
 offset_top = -14.0
@@ -207,6 +212,9 @@ theme_override_font_sizes/font_size = 22
 text = "3"
 script = ExtResource("7_f0ymp")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CenterContainer3/Label"]
+stream = ExtResource("3_qk4nq")
+
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 offset_left = 114.0
@@ -219,7 +227,6 @@ theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 6
 theme_override_fonts/font = ExtResource("1_kbcot")
 theme_override_font_sizes/font_size = 21
-text = "22"
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="keyPressed" from="CenterContainer2/Label" to="ShitSpawner" method="_on_label_key_pressed"]

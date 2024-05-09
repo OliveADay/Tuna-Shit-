@@ -24,6 +24,7 @@ func _process(delta):
 		scale.y -= speed*delta
 	else: if not landOne:
 		$CPUParticles2D.emitting = true
+		$AudioStreamPlayer2D.playing = true
 		add_child(shitBit_1)
 		add_child(shitBit_2)
 		add_child(shitBit_3)
