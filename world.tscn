@@ -181,8 +181,9 @@ shape = SubResource("RectangleShape2D_hu5fs")
 position = Vector2(104.5, 266.5)
 shape = SubResource("RectangleShape2D_hu5fs")
 
-[node name="ShitSpawner" type="Node2D" parent="." node_paths=PackedStringArray("scoreTxt")]
+[node name="ShitSpawner" type="Node2D" parent="." node_paths=PackedStringArray("bScoreTxt", "scoreTxt")]
 script = ExtResource("7_ai3me")
+bScoreTxt = NodePath("../CenterContainer4/Label")
 scoreTxt = NodePath("../Label")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ShitSpawner"]
@@ -231,6 +232,25 @@ collision_mask = 139
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(72.5, -86)
 shape = SubResource("RectangleShape2D_cfdff")
+
+[node name="CenterContainer4" type="CenterContainer" parent="."]
+offset_left = 72.0
+offset_top = 127.0
+offset_right = 72.0
+offset_bottom = 127.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="CenterContainer4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_kbcot")
+theme_override_font_sizes/font_size = 16
+text = "Best Score"
+script = ExtResource("2_fay2f")
 
 [connection signal="keyPressed" from="CenterContainer2/Label" to="Fish/tween" method="_on_label_key_pressed"]
 [connection signal="keyPressed" from="CenterContainer2/Label" to="ShitSpawner" method="_on_label_key_pressed"]
