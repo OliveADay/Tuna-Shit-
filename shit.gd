@@ -11,7 +11,7 @@ var landOne = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var randX = randi()%120 +26
-	var randY = randi()%66 +20
+	var randY = randi()%228+20
 	position.x = randX
 	position.y = randY
 	 # Replace with function body.

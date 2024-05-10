@@ -21,8 +21,10 @@ func _process(delta):
 		scoreTxt.text = str(score).pad_decimals(0)
 		if scoreTxt.text != scoretext_late and scoreTxt.text != "0":
 			$AudioStreamPlayer2D.playing = true
-		if(interval.x > 0.1):
+		if(interval.x > 0.001):
 			interval.x -= delta/100
+		else:
+			interval.x = 0.001
 		if time >= interval.x:
 			time = 0
 			var shit = shits[0].instantiate()
